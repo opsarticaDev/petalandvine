@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Petal & Vine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink-light: #fdf2f4;
+            --pink-blush: #f8e1e7;
+            --pink-soft: #e8a4b8;
+            --pink-primary: #d4829a;
+            --pink-deep: #c76b8a;
+            --gold: #c9a855;
+            --gold-light: #e8d5a3;
+            --black: #1a1a1a;
+            --black-soft: #2d2d2d;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            background: var(--pink-light);
+            color: var(--black);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(253, 242, 244, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201, 168, 85, 0.2);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--pink-deep);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black-soft);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--pink-deep);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .page-header {
+            padding: 10rem 4rem 4rem;
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-blush) 50%, var(--pink-light) 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .page-label {
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--black);
+            letter-spacing: 0.05em;
+        }
+
+        .page-subtitle {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            color: var(--black-soft);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .faq-category {
+            margin-bottom: 4rem;
+        }
+
+        .faq-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--black);
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--pink-blush);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .category-icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--pink-light);
+            border-radius: 50%;
+        }
+
+        .category-icon svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--pink-deep);
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--pink-blush);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--gold);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: var(--pink-light);
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--black);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--pink-blush);
+        }
+
+        .faq-question.active {
+            background: var(--pink-blush);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+
+        .faq-icon::before,
+        .faq-icon::after {
+            content: '';
+            position: absolute;
+            background: var(--gold);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-icon::before {
+            width: 12px;
+            height: 2px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .faq-icon::after {
+            width: 2px;
+            height: 12px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .faq-question.active .faq-icon::after {
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+        }
+
+        .faq-answer-inner {
+            padding: 1.5rem;
+            color: var(--black-soft);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            border-top: 1px solid var(--pink-blush);
+        }
+
+        .faq-answer-inner a {
+            color: var(--pink-deep);
+            text-decoration: none;
+            border-bottom: 1px solid var(--pink-soft);
+            transition: border-color 0.3s ease;
+        }
+
+        .faq-answer-inner a:hover {
+            border-color: var(--pink-deep);
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-blush) 100%);
+            padding: 3rem;
+            text-align: center;
+            margin-top: 4rem;
+            border: 1px solid var(--gold);
+        }
+
+        .contact-box h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p {
+            color: var(--black-soft);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            border: 1px solid var(--black);
+            transition: all 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background: transparent;
+            color: var(--black);
+        }
+
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--pink-soft);
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 2rem auto;
+        }
+
+        .footer-copyright {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .page-header {
+                padding: 8rem 2rem 3rem;
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            .content {
+                padding: 3rem 1.5rem;
+            }
+
+            .faq-question {
+                font-size: 0.95rem;
+                padding: 1.25rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="petal-and-vine.html" class="nav-logo">Petal & Vine</a>
+        <ul class="nav-links">
+            <li><a href="petal-and-vine.html#about">About</a></li>
+            <li><a href="petal-and-vine.html#services">Services</a></li>
+            <li><a href="petal-and-vine.html#gallery">Gallery</a></li>
+            <li><a href="petal-and-vine.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <span class="page-label">Help Center</span>
+        <h1 class="page-title">Frequently Asked Questions</h1>
+        <p class="page-subtitle">Find answers to common questions about shopping and consigning with Petal & Vine.</p>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+        <!-- Shopping FAQs -->
+        <div class="faq-category">
+            <h2 class="category-title">
+                <span class="category-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                </span>
+                Shopping
+            </h2>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Are all items authenticated?
+                    <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes, absolutely. Every designer item that enters our boutique undergoes a thorough authentication process. We use industry-standard verification methods and, when necessary, partner with third-party authentication services for high-value items. Your confidence in the authenticity of our pieces is our top priority. If you ever have concerns about an item's authenticity, we offer a 14-day authentication guarantee.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What is your return policy?
+                    <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Due to the unique nature of consignment merchandise, we offer store credit for returns made within 7 days of purchase. Items must be in the same condition as sold with original tags attached. Items marked "Final Sale," jewelry, and intimate apparel cannot be returned. Please see our full <a href="terms.html">Terms of Service</a> for complete details.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do you offer layaway?
+                    <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes! For purchases over $500, we offer a layaway program. A 25% non-refundable deposit holds your item for up to 30 days while you pay the balance. The item remains in-store until paid in full. Please speak with a team member to set up layaway.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What payment methods do you accept?
+                    <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        We accept cash, all major credit and debit cards (Visa, Mastercard, American Express, Discover), and mobile payments including Apple Pay and Google Pay. Payment is due in full at the time of purchase.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do you ship items?
+                    <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        At this time, Petal & Vine is an in-store boutique only. We love the personal connection of helping our clients find their perfect pieces in person. Follow us on social media to see new arrivals and call ahead if you'd like us to hold an item for you to view.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Consignment FAQs -->
+        <div class="faq-category">
+            <h2 class="category-title">
+                <span class="category-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                </span>
+                Consignment
+            </h2>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What items do you accept for consignment?
+                    <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        We accept high-quality, pre-owned luxury items including designer handbags, fine jewelry, women's clothing (current styles within 3 years), designer shoes, and select home décor. All items must be authentic, clean, and in excellent condition. We're selective to maintain the curated quality our clients expect. Please review our full <a href="consignment.html">Consignment Agreement</a> for detailed acceptance criteria.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How much will I earn from my items?
+                    <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Your commission depends on the final selling price. Items selling under $100 earn 40%, $100-$499 earns 50%, $500-$999 earns 55%, $1,000-$4,999 earns 60%, and items over $5,000 earn 65%. We price items competitively based on current market conditions to help your pieces sell quickly.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How long is the consignment period?
+                    <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Our standard consignment period is 90 days. After 45 days, prices may be reduced by up to 25% to encourage sale. At the end of the period, unsold items must be retrieved within 14 days. You may also request to extend the consignment period, subject to our approval.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    When and how do I get paid?
+                    <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Payments are processed on the 15th of each month for items sold during the previous month. We offer payment by check, direct deposit, or store credit (store credit includes a 5% bonus!). The minimum payout threshold is $25—smaller amounts roll over to the next pay period.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How do I start consigning?
+                    <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Getting started is easy! Email photos and descriptions of your items to <a href="mailto:consign@petalandvine.com">consign@petalandvine.com</a>. We'll review and respond within 3 business days. If we're interested, we'll schedule an appointment for you to bring items in. You'll complete our consignment paperwork, receive a consignment number, and we'll handle the rest!
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What happens to unsold items?
+                    <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        We'll notify you when your consignment period ends. You have 14 days to pick up unsold items or request an extension. Items not retrieved within 14 days become property of Petal & Vine and may be donated to charity. We recommend responding promptly to our notifications!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Store Information FAQs -->
+        <div class="faq-category">
+            <h2 class="category-title">
+                <span class="category-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                </span>
+                Store Information
+            </h2>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Where are you located?
+                    <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        We're located at 123 Boutique Lane, Your City, State 12345. We're in the heart of the shopping district with street parking available as well as a public parking garage one block away.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What are your hours?
+                    <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        We're open Tuesday through Saturday, 10am to 6pm. We're closed on Sunday and Monday. Holiday hours may vary—please follow us on social media or call ahead during holiday seasons.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do you offer personal styling appointments?
+                    <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes! Our personal styling service is available by appointment. Whether you're looking for a special occasion piece, updating your wardrobe, or searching for the perfect gift, our stylists can provide personalized recommendations. Contact us to schedule your complimentary styling session.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How can I stay updated on new arrivals?
+                    <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Follow us on Instagram for daily updates on new arrivals, styling inspiration, and behind-the-scenes peeks! You can also sign up for our email newsletter to receive first access to special pieces and exclusive events. Just ask in-store or send us an email to join the list.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Box -->
+        <div class="contact-box">
+            <h3>Still Have Questions?</h3>
+            <p>We're here to help! Reach out and our team will get back to you shortly.</p>
+            <a href="mailto:hello@petalandvine.com" class="contact-button">Contact Us</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Petal & Vine</div>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="consignment.html">Consignment Agreement</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+        <div class="footer-divider"></div>
+        <p class="footer-copyright">© 2024 Petal & Vine. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const isActive = button.classList.contains('active');
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-question').forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.nextElementSibling.classList.remove('active');
+                });
+                
+                // Toggle current answer
+                if (!isActive) {
+                    button.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

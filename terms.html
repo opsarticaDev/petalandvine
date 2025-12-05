@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Petal & Vine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink-light: #fdf2f4;
+            --pink-blush: #f8e1e7;
+            --pink-soft: #e8a4b8;
+            --pink-primary: #d4829a;
+            --pink-deep: #c76b8a;
+            --gold: #c9a855;
+            --gold-light: #e8d5a3;
+            --black: #1a1a1a;
+            --black-soft: #2d2d2d;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            background: var(--pink-light);
+            color: var(--black);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(253, 242, 244, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201, 168, 85, 0.2);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--pink-deep);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black-soft);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--pink-deep);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .page-header {
+            padding: 10rem 4rem 4rem;
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-blush) 50%, var(--pink-light) 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .page-label {
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--black);
+            letter-spacing: 0.05em;
+        }
+
+        .page-updated {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--pink-deep);
+            font-style: italic;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--black);
+            margin: 3rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--pink-blush);
+        }
+
+        .content h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            color: var(--black-soft);
+            font-size: 0.95rem;
+        }
+
+        .content ul, .content ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--black-soft);
+        }
+
+        .content li {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .content a {
+            color: var(--pink-deep);
+            text-decoration: none;
+            border-bottom: 1px solid var(--pink-soft);
+            transition: border-color 0.3s ease;
+        }
+
+        .content a:hover {
+            border-color: var(--pink-deep);
+        }
+
+        .highlight-box {
+            background: var(--pink-light);
+            border-left: 3px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+        }
+
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--pink-soft);
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 2rem auto;
+        }
+
+        .footer-copyright {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .page-header {
+                padding: 8rem 2rem 3rem;
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            .content {
+                padding: 3rem 1.5rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="petal-and-vine.html" class="nav-logo">Petal & Vine</a>
+        <ul class="nav-links">
+            <li><a href="petal-and-vine.html#about">About</a></li>
+            <li><a href="petal-and-vine.html#services">Services</a></li>
+            <li><a href="petal-and-vine.html#gallery">Gallery</a></li>
+            <li><a href="petal-and-vine.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <span class="page-label">Legal</span>
+        <h1 class="page-title">Terms of Service</h1>
+        <p class="page-updated">Last Updated: January 2024</p>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+        <h2>Agreement to Terms</h2>
+        <p>Welcome to Petal & Vine. These Terms of Service ("Terms") govern your use of our services, including purchases, consignment arrangements, and any interactions with our boutique. By engaging with Petal & Vine, you agree to be bound by these Terms.</p>
+        
+        <div class="highlight-box">
+            <p>Please read these Terms carefully before making a purchase or entering into a consignment agreement. If you do not agree to these Terms, please do not use our services.</p>
+        </div>
+
+        <h2>Products and Services</h2>
+        <p>Petal & Vine is a consignment boutique offering pre-owned luxury goods including but not limited to clothing, handbags, accessories, and jewelry. All items are authenticated and inspected for quality before being offered for sale.</p>
+        <p>We make every effort to accurately describe and photograph our merchandise. However, due to variations in monitors and the nature of pre-owned items, colors may appear slightly different, and items may show minor signs of wear not visible in photographs.</p>
+
+        <h2>Purchases and Payment</h2>
+        <p>All prices are listed in US dollars and are subject to applicable sales tax. We accept the following forms of payment:</p>
+        <ul>
+            <li>Cash</li>
+            <li>Credit and debit cards (Visa, Mastercard, American Express, Discover)</li>
+            <li>Mobile payment (Apple Pay, Google Pay)</li>
+        </ul>
+        <p>Payment is due in full at the time of purchase. All sales are considered final once payment is processed.</p>
+
+        <h2>Returns and Exchanges</h2>
+        <p>Due to the unique nature of consignment merchandise, our return policy is as follows:</p>
+        <ul>
+            <li><strong>Store Credit:</strong> Items may be returned within 7 days of purchase for store credit only, provided they are in the same condition as sold with original tags attached.</li>
+            <li><strong>Final Sale Items:</strong> Items marked as "Final Sale" cannot be returned or exchanged.</li>
+            <li><strong>Jewelry and Intimate Items:</strong> All jewelry and intimate apparel sales are final for hygiene reasons.</li>
+            <li><strong>Authentication Guarantee:</strong> If an item is found to be inauthentic by a certified authentication service within 14 days of purchase, we will provide a full refund upon return of the item.</li>
+        </ul>
+
+        <h2>Layaway Policy</h2>
+        <p>We offer a layaway program for purchases over $500:</p>
+        <ul>
+            <li>25% non-refundable deposit required to hold an item</li>
+            <li>Balance must be paid within 30 days</li>
+            <li>Item remains in store until paid in full</li>
+            <li>Failure to complete payment results in forfeiture of deposit</li>
+        </ul>
+
+        <h2>Consignment</h2>
+        <p>For detailed information about our consignment program, please refer to our <a href="consignment.html">Consignment Agreement</a>. General terms include:</p>
+        <ul>
+            <li>Items must meet our quality and authenticity standards</li>
+            <li>Consignment periods typically run 90 days</li>
+            <li>Commission rates vary based on item value and category</li>
+            <li>Unsold items must be retrieved within 14 days of consignment period ending</li>
+        </ul>
+
+        <h2>Intellectual Property</h2>
+        <p>All content on our website and marketing materials, including logos, images, and text, is the property of Petal & Vine and is protected by copyright and trademark laws. You may not reproduce, distribute, or use our content without prior written permission.</p>
+
+        <h2>Limitation of Liability</h2>
+        <p>To the fullest extent permitted by law, Petal & Vine shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services. Our total liability shall not exceed the amount you paid for the specific product or service giving rise to the claim.</p>
+
+        <h2>Indemnification</h2>
+        <p>You agree to indemnify and hold harmless Petal & Vine, its owners, employees, and agents from any claims, damages, losses, or expenses arising from your breach of these Terms or your use of our services.</p>
+
+        <h2>Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the State of [Your State], without regard to its conflict of law provisions. Any disputes arising under these Terms shall be resolved in the courts located in [Your County], [Your State].</p>
+
+        <h2>Changes to Terms</h2>
+        <p>We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting to our website. Your continued use of our services after any changes constitutes acceptance of the new Terms.</p>
+
+        <h2>Severability</h2>
+        <p>If any provision of these Terms is found to be unenforceable, the remaining provisions shall continue in full force and effect.</p>
+
+        <h2>Contact Information</h2>
+        <p>For questions about these Terms of Service, please contact us:</p>
+        <p>
+            Petal & Vine<br>
+            123 Boutique Lane<br>
+            Your City, State 12345<br>
+            <a href="mailto:hello@petalandvine.com">hello@petalandvine.com</a><br>
+            (555) 123-4567
+        </p>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Petal & Vine</div>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="consignment.html">Consignment Agreement</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+        <div class="footer-divider"></div>
+        <p class="footer-copyright">© 2024 Petal & Vine. All rights reserved.</p>
+    </footer>
+</body>
+</html>

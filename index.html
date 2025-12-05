@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petal & Vine | Luxury Consignment Boutique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink-light: #fdf2f4;
+            --pink-blush: #f8e1e7;
+            --pink-soft: #e8a4b8;
+            --pink-primary: #d4829a;
+            --pink-deep: #c76b8a;
+            --gold: #c9a855;
+            --gold-light: #e8d5a3;
+            --gold-shimmer: linear-gradient(135deg, #d4af37 0%, #f4e4ba 25%, #c9a855 50%, #f4e4ba 75%, #d4af37 100%);
+            --black: #1a1a1a;
+            --black-soft: #2d2d2d;
+            --white: #ffffff;
+            --crystal: rgba(255, 255, 255, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            background: var(--pink-light);
+            color: var(--black);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* Crystal sparkle effect */
+        .sparkle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(201,168,85,0.8) 50%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkle 3s ease-in-out infinite;
+            z-index: 9999;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(253, 242, 244, 0.98), rgba(253, 242, 244, 0.85));
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201, 168, 85, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 4rem;
+            background: rgba(253, 242, 244, 0.98);
+            box-shadow: 0 4px 30px rgba(199, 107, 138, 0.1);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--pink-deep);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black-soft);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--pink-deep);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-blush) 50%, var(--pink-light) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(201, 168, 85, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(199, 107, 138, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Decorative crystal elements */
+        .crystal-deco {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(201,168,85,0.1) 50%, rgba(255,255,255,0.2) 100%);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .crystal-deco:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+
+        .crystal-deco:nth-child(2) {
+            top: 60%;
+            right: 8%;
+            width: 120px;
+            height: 120px;
+            animation-delay: -2s;
+        }
+
+        .crystal-deco:nth-child(3) {
+            bottom: 20%;
+            left: 15%;
+            width: 60px;
+            height: 60px;
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Gold vine decorations */
+        .vine-decoration {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .vine-left {
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .vine-right {
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%) scaleX(-1);
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-logo {
+            max-width: 400px;
+            width: 90%;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 10px 30px rgba(199, 107, 138, 0.3));
+            animation: logoReveal 1.5s ease-out;
+        }
+
+        @keyframes logoReveal {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hero-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--black-soft);
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1.2s ease-out 0.3s both;
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--pink-deep);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1.2s ease-out 0.5s both;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            border: 1px solid var(--black);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            animation: fadeInUp 1.2s ease-out 0.7s both;
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold-shimmer);
+            transition: left 0.4s ease;
+        }
+
+        .hero-cta:hover {
+            color: var(--black);
+            border-color: var(--gold);
+        }
+
+        .hero-cta:hover::before {
+            left: 0;
+        }
+
+        .hero-cta span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            animation: fadeInUp 1.2s ease-out 1s both;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--pink-deep);
+        }
+
+        .scroll-arrow {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 4rem;
+            background: var(--white);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--black);
+            letter-spacing: 0.05em;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--black-soft);
+            margin-bottom: 2rem;
+        }
+
+        .about-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 3rem auto;
+        }
+
+        /* Features/Services */
+        .services {
+            padding: 8rem 4rem;
+            background: linear-gradient(180deg, var(--pink-light) 0%, var(--pink-blush) 100%);
+            position: relative;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(201, 168, 85, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gold-shimmer);
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(199, 107, 138, 0.15);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--pink-deep);
+        }
+
+        .service-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: var(--pink-deep);
+            stroke-width: 1;
+            fill: none;
+        }
+
+        .service-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--black);
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .service-text {
+            font-size: 0.9rem;
+            color: var(--black-soft);
+            line-height: 1.8;
+        }
+
+        /* Gallery Preview */
+        .gallery {
+            padding: 8rem 4rem;
+            background: var(--black);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery .section-label {
+            color: var(--gold-light);
+        }
+
+        .gallery .section-title {
+            color: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--pink-soft) 0%, var(--pink-deep) 100%);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(201, 168, 85, 0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-item:nth-child(1) { background: linear-gradient(135deg, #e8a4b8 0%, #d4829a 100%); }
+        .gallery-item:nth-child(2) { background: linear-gradient(135deg, #f8e1e7 0%, #e8a4b8 100%); }
+        .gallery-item:nth-child(3) { background: linear-gradient(135deg, #c76b8a 0%, #d4829a 100%); }
+        .gallery-item:nth-child(4) { background: linear-gradient(135deg, #d4829a 0%, #c76b8a 100%); }
+
+        .gallery-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 4rem;
+            background: var(--white);
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-label {
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--black);
+        }
+
+        .contact-value a {
+            color: var(--black);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: var(--pink-deep);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--pink-soft);
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 2rem auto;
+        }
+
+        .footer-copyright {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.1em;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-logo {
+                max-width: 280px;
+            }
+
+            .hero-tagline {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about, .services, .gallery, .contact {
+                padding: 5rem 2rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Page transitions */
+        .page-overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--pink-light);
+            z-index: 10000;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .page-overlay.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Overlay for Transitions -->
+    <div class="page-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="nav-logo">Petal & Vine</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="crystal-deco"></div>
+        <div class="crystal-deco"></div>
+        <div class="crystal-deco"></div>
+        
+        <svg class="vine-decoration vine-left" viewBox="0 0 100 200">
+            <path d="M80 0 Q60 50 80 100 Q100 150 80 200" stroke="#c9a855" stroke-width="0.5" fill="none"/>
+            <circle cx="70" cy="30" r="8" fill="#c9a855"/>
+            <circle cx="90" cy="80" r="6" fill="#c9a855"/>
+            <circle cx="75" cy="130" r="10" fill="#c9a855"/>
+            <circle cx="85" cy="170" r="5" fill="#c9a855"/>
+        </svg>
+        
+        <svg class="vine-decoration vine-right" viewBox="0 0 100 200">
+            <path d="M80 0 Q60 50 80 100 Q100 150 80 200" stroke="#c9a855" stroke-width="0.5" fill="none"/>
+            <circle cx="70" cy="30" r="8" fill="#c9a855"/>
+            <circle cx="90" cy="80" r="6" fill="#c9a855"/>
+            <circle cx="75" cy="130" r="10" fill="#c9a855"/>
+            <circle cx="85" cy="170" r="5" fill="#c9a855"/>
+        </svg>
+
+        <div class="hero-content">
+            <img src="/mnt/user-data/uploads/IMG_2198.jpg" alt="Petal & Vine" class="hero-logo">
+            <p class="hero-tagline">Where Luxury Finds a Second Life</p>
+            <p class="hero-subtitle">Boutique Consignment</p>
+            <a href="#contact" class="hero-cta"><span>Visit Our Boutique</span></a>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Discover</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-header">
+            <span class="section-label">Our Story</span>
+            <h2 class="section-title">Curated Elegance</h2>
+        </div>
+        <div class="about-content">
+            <p class="about-text">
+                Petal & Vine is a carefully curated consignment boutique where pre-loved luxury meets discerning taste. We believe that exceptional pieces deserve exceptional care—and a second chance to shine.
+            </p>
+            <div class="about-divider"></div>
+            <p class="about-text">
+                From designer handbags to statement jewelry, vintage treasures to contemporary classics, each item in our collection is hand-selected for quality, authenticity, and timeless appeal. Step into our world of understated opulence.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <span class="section-label">What We Offer</span>
+            <h2 class="section-title">The Experience</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">Luxury Consignment</h3>
+                <p class="service-text">Authenticated designer pieces at exceptional value. Every item is verified for authenticity and quality before gracing our shelves.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">Consign With Us</h3>
+                <p class="service-text">Ready to part with your treasures? We offer competitive consignment rates and handle everything from pricing to presentation.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">Personal Styling</h3>
+                <p class="service-text">Let our style consultants help you discover pieces that speak to your unique aesthetic. By appointment only.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="section-header">
+            <span class="section-label">The Collection</span>
+            <h2 class="section-title">Currently In Store</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="gallery-placeholder">Coming Soon</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">Coming Soon</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">Coming Soon</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">Coming Soon</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-header">
+            <span class="section-label">Get In Touch</span>
+            <h2 class="section-title">Visit Us</h2>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <p class="contact-label">Location</p>
+                    <p class="contact-value">123 Boutique Lane<br>Your City, State 12345</p>
+                </div>
+                <div class="contact-item">
+                    <p class="contact-label">Hours</p>
+                    <p class="contact-value">Tuesday – Saturday<br>10am – 6pm</p>
+                </div>
+                <div class="contact-item">
+                    <p class="contact-label">Contact</p>
+                    <p class="contact-value">
+                        <a href="tel:+15551234567">(555) 123-4567</a><br>
+                        <a href="mailto:hello@petalandvine.com">hello@petalandvine.com</a>
+                    </p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Pinterest">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M12 6v12M9 15l3 3 3-3" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Petal & Vine</div>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="consignment.html">Consignment Agreement</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+        <div class="footer-divider"></div>
+        <p class="footer-copyright">© 2024 Petal & Vine. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Crystal sparkle effect on mouse move
+        let sparkleTimeout;
+        document.addEventListener('mousemove', (e) => {
+            clearTimeout(sparkleTimeout);
+            sparkleTimeout = setTimeout(() => {
+                if (Math.random() > 0.85) {
+                    createSparkle(e.clientX, e.clientY);
+                }
+            }, 50);
+        });
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 3000);
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

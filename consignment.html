@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consignment Agreement | Petal & Vine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink-light: #fdf2f4;
+            --pink-blush: #f8e1e7;
+            --pink-soft: #e8a4b8;
+            --pink-primary: #d4829a;
+            --pink-deep: #c76b8a;
+            --gold: #c9a855;
+            --gold-light: #e8d5a3;
+            --black: #1a1a1a;
+            --black-soft: #2d2d2d;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            background: var(--pink-light);
+            color: var(--black);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(253, 242, 244, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201, 168, 85, 0.2);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--pink-deep);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black-soft);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--pink-deep);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .page-header {
+            padding: 10rem 4rem 4rem;
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-blush) 50%, var(--pink-light) 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .page-label {
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--black);
+            letter-spacing: 0.05em;
+        }
+
+        .page-updated {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--pink-deep);
+            font-style: italic;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--black);
+            margin: 3rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--pink-blush);
+        }
+
+        .content h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--pink-deep);
+            margin: 2rem 0 1rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            color: var(--black-soft);
+            font-size: 0.95rem;
+        }
+
+        .content ul, .content ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--black-soft);
+        }
+
+        .content li {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .content a {
+            color: var(--pink-deep);
+            text-decoration: none;
+            border-bottom: 1px solid var(--pink-soft);
+            transition: border-color 0.3s ease;
+        }
+
+        .content a:hover {
+            border-color: var(--pink-deep);
+        }
+
+        .highlight-box {
+            background: var(--pink-light);
+            border-left: 3px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+        }
+
+        .commission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        .commission-table th,
+        .commission-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--pink-blush);
+            font-size: 0.95rem;
+        }
+
+        .commission-table th {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--black);
+            background: var(--pink-light);
+        }
+
+        .commission-table td {
+            color: var(--black-soft);
+        }
+
+        .commission-table tr:hover td {
+            background: var(--pink-light);
+        }
+
+        .cta-box {
+            background: var(--black);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-box p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            border: 1px solid var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--gold);
+            color: var(--black);
+            border-color: var(--gold);
+        }
+
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--pink-soft);
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 2rem auto;
+        }
+
+        .footer-copyright {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .page-header {
+                padding: 8rem 2rem 3rem;
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            .content {
+                padding: 3rem 1.5rem;
+            }
+
+            .commission-table {
+                font-size: 0.85rem;
+            }
+
+            .commission-table th,
+            .commission-table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="petal-and-vine.html" class="nav-logo">Petal & Vine</a>
+        <ul class="nav-links">
+            <li><a href="petal-and-vine.html#about">About</a></li>
+            <li><a href="petal-and-vine.html#services">Services</a></li>
+            <li><a href="petal-and-vine.html#gallery">Gallery</a></li>
+            <li><a href="petal-and-vine.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <span class="page-label">Consign With Us</span>
+        <h1 class="page-title">Consignment Agreement</h1>
+        <p class="page-updated">Last Updated: January 2024</p>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+        <h2>Welcome to Our Consignment Program</h2>
+        <p>Thank you for considering Petal & Vine as your consignment partner. We are dedicated to finding the perfect new home for your luxury items while ensuring you receive fair compensation for your treasures. This agreement outlines the terms and conditions of our consignment relationship.</p>
+        
+        <div class="highlight-box">
+            <p>By consigning items with Petal & Vine, you ("Consignor") agree to all terms outlined in this agreement. Please read carefully before submitting items for consignment.</p>
+        </div>
+
+        <h2>What We Accept</h2>
+        <p>Petal & Vine specializes in high-quality, pre-owned luxury items. We accept:</p>
+        <ul>
+            <li><strong>Designer Handbags & Accessories:</strong> Chanel, Louis Vuitton, Hermès, Gucci, Prada, and comparable brands</li>
+            <li><strong>Fine Jewelry:</strong> Designer and precious metal pieces in excellent condition</li>
+            <li><strong>Women's Clothing:</strong> Designer and contemporary brands, current styles (within 3 years)</li>
+            <li><strong>Shoes:</strong> Designer footwear with minimal wear</li>
+            <li><strong>Home Décor:</strong> Select luxury decorative items</li>
+        </ul>
+
+        <h3>Acceptance Criteria</h3>
+        <p>All items must be:</p>
+        <ul>
+            <li>Authentic (we reserve the right to authenticate all items)</li>
+            <li>Clean and in excellent to like-new condition</li>
+            <li>Free of significant damage, stains, odors, or excessive wear</li>
+            <li>Current in style (generally within 3-5 years for clothing)</li>
+            <li>Appropriate for our clientele and brand aesthetic</li>
+        </ul>
+
+        <h2>Commission Structure</h2>
+        <p>Our commission rates are based on the final selling price of your item:</p>
+        
+        <table class="commission-table">
+            <thead>
+                <tr>
+                    <th>Selling Price</th>
+                    <th>Your Share</th>
+                    <th>Petal & Vine</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Under $100</td>
+                    <td>40%</td>
+                    <td>60%</td>
+                </tr>
+                <tr>
+                    <td>$100 - $499</td>
+                    <td>50%</td>
+                    <td>50%</td>
+                </tr>
+                <tr>
+                    <td>$500 - $999</td>
+                    <td>55%</td>
+                    <td>45%</td>
+                </tr>
+                <tr>
+                    <td>$1,000 - $4,999</td>
+                    <td>60%</td>
+                    <td>40%</td>
+                </tr>
+                <tr>
+                    <td>$5,000+</td>
+                    <td>65%</td>
+                    <td>35%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Consignment Period</h2>
+        <p>The standard consignment period is <strong>90 days</strong> from the date items are accepted and priced. During this period:</p>
+        <ul>
+            <li>Items will be displayed in our boutique and/or on our online platforms</li>
+            <li>Pricing is determined by Petal & Vine based on market conditions, brand, condition, and demand</li>
+            <li>Price reductions of up to 25% may occur after 45 days to encourage sale</li>
+            <li>Consignors may request a specific minimum price, which may affect acceptance</li>
+        </ul>
+
+        <h2>Payment Terms</h2>
+        <p>Upon sale of your item(s):</p>
+        <ul>
+            <li>Payments are processed on the 15th of each month for items sold in the previous month</li>
+            <li>Minimum payout threshold: $25 (smaller amounts roll over to next period)</li>
+            <li>Payment methods: Check, direct deposit, or store credit (store credit receives 5% bonus)</li>
+            <li>Consignors are responsible for any applicable taxes on their earnings</li>
+        </ul>
+
+        <h2>Unsold Items</h2>
+        <p>If items do not sell during the consignment period:</p>
+        <ul>
+            <li>Consignors will be notified via email/phone when the consignment period ends</li>
+            <li>Items must be retrieved within <strong>14 days</strong> of notification</li>
+            <li>Consignors may choose to extend the consignment period (subject to approval)</li>
+            <li>Unclaimed items after 14 days become property of Petal & Vine and may be donated to charity or disposed of at our discretion</li>
+        </ul>
+
+        <h2>Consignor Responsibilities</h2>
+        <p>By consigning with us, you agree that:</p>
+        <ul>
+            <li>You are the legal owner of all consigned items or authorized to sell them</li>
+            <li>All items are authentic and legally obtained</li>
+            <li>Items are accurately described and free of undisclosed defects</li>
+            <li>You will provide valid identification and contact information</li>
+            <li>You will respond to communications within 7 days</li>
+        </ul>
+
+        <h2>Petal & Vine Responsibilities</h2>
+        <p>We commit to:</p>
+        <ul>
+            <li>Handle your items with care and store them in a secure environment</li>
+            <li>Market and display items professionally</li>
+            <li>Maintain accurate records of all transactions</li>
+            <li>Process payments in a timely manner</li>
+            <li>Communicate promptly regarding sales, price changes, or issues</li>
+        </ul>
+
+        <h2>Loss, Damage & Liability</h2>
+        <p>While we take every precaution to protect your items:</p>
+        <ul>
+            <li>Petal & Vine is not responsible for loss or damage due to theft, fire, flood, or other unforeseen circumstances</li>
+            <li>Our liability is limited to 50% of the agreed-upon selling price</li>
+            <li>We recommend consignors maintain their own insurance for high-value items</li>
+            <li>Items are not insured while in our possession unless separately arranged</li>
+        </ul>
+
+        <h2>Termination</h2>
+        <p>Either party may terminate this agreement:</p>
+        <ul>
+            <li>Consignors may withdraw items at any time with 7 days written notice</li>
+            <li>Petal & Vine may return items at any time if they no longer meet our standards</li>
+            <li>Termination does not affect items already sold or pending transactions</li>
+        </ul>
+
+        <h2>How to Consign</h2>
+        <p>Ready to consign with us? Here's how to get started:</p>
+        <ol>
+            <li><strong>Submit Photos:</strong> Email photos and descriptions of items to <a href="mailto:consign@petalandvine.com">consign@petalandvine.com</a></li>
+            <li><strong>Review:</strong> We'll respond within 3 business days with items we'd like to see in person</li>
+            <li><strong>Appointment:</strong> Schedule a drop-off appointment at our boutique</li>
+            <li><strong>Agreement:</strong> Complete consignment paperwork and receive your consignment number</li>
+            <li><strong>Get Paid:</strong> Receive payment when your items sell!</li>
+        </ol>
+
+        <div class="cta-box">
+            <p>Ready to give your luxury items a second life?</p>
+            <a href="mailto:consign@petalandvine.com" class="cta-button">Start Consigning</a>
+        </div>
+
+        <h2>Contact Us</h2>
+        <p>Questions about consignment? We're here to help:</p>
+        <p>
+            Petal & Vine<br>
+            123 Boutique Lane<br>
+            Your City, State 12345<br>
+            <a href="mailto:consign@petalandvine.com">consign@petalandvine.com</a><br>
+            (555) 123-4567
+        </p>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Petal & Vine</div>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="consignment.html">Consignment Agreement</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+        <div class="footer-divider"></div>
+        <p class="footer-copyright">© 2024 Petal & Vine. All rights reserved.</p>
+    </footer>
+</body>
+</html>
